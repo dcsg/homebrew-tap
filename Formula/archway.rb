@@ -11,7 +11,7 @@ class Archway < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_darwin_amd64.tar.gz"
-      sha256 "02e5de450b7f8d16b180b1724ed25832f99b0a3c160b0e83f49c5ffe84db81a9"
+      sha256 "a74cc1c46adb3703cd58815d005daf8d5f849651323fd10c59380fc892c23616"
 
       define_method(:install) do
         bin.install "archway"
@@ -19,7 +19,7 @@ class Archway < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_darwin_arm64.tar.gz"
-      sha256 "15868a6ef6d222633ac9976604a245d4ef6bc41308f91383db0f4c9c7eb03c3f"
+      sha256 "a90e87edc4857a843237dcb4bde2eb2e233f64a36f50a95a656c1b59819ce4aa"
 
       define_method(:install) do
         bin.install "archway"
@@ -30,14 +30,14 @@ class Archway < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_linux_amd64.tar.gz"
-      sha256 "51d39ff2897b1018dee9912cb2c4119d43ce525d74339a7ba4d6fd254d825526"
+      sha256 "64357e3a7297fb37ea5fcab04b7ef4add335bdbf30b462e455af32205861e8d3"
       define_method(:install) do
         bin.install "archway"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_linux_arm64.tar.gz"
-      sha256 "83543a278daf42c2b97a74e28360bcb6b5dd75f76e73a00caf1814f974749463"
+      sha256 "cbb160a4d78d30c6afe711b79cb2a6fb72294b9aaedef78e1d5a83ff237271b1"
       define_method(:install) do
         bin.install "archway"
       end
