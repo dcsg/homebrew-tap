@@ -5,21 +5,21 @@
 class Archway < Formula
   desc "Architecture-aware service composer and enforcer"
   homepage "https://github.com/dcsg/archway"
-  version "0.1.0"
+  version "0.2.0"
   license "Elastic-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_darwin_amd64.tar.gz"
-      sha256 "a74cc1c46adb3703cd58815d005daf8d5f849651323fd10c59380fc892c23616"
+      url "https://github.com/dcsg/archway/releases/download/v0.2.0/archway_0.2.0_darwin_amd64.tar.gz"
+      sha256 "2bfc06cd80ab368b45404ee1d0d51bc7c0da3124db2913cd21c1090378419dc7"
 
       define_method(:install) do
         bin.install "archway"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_darwin_arm64.tar.gz"
-      sha256 "a90e87edc4857a843237dcb4bde2eb2e233f64a36f50a95a656c1b59819ce4aa"
+      url "https://github.com/dcsg/archway/releases/download/v0.2.0/archway_0.2.0_darwin_arm64.tar.gz"
+      sha256 "67d3e30f755adf8101ac999228b7776a64fe286c9481c3dfa685793e6ebf2fb7"
 
       define_method(:install) do
         bin.install "archway"
@@ -29,19 +29,23 @@ class Archway < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_linux_amd64.tar.gz"
-      sha256 "64357e3a7297fb37ea5fcab04b7ef4add335bdbf30b462e455af32205861e8d3"
+      url "https://github.com/dcsg/archway/releases/download/v0.2.0/archway_0.2.0_linux_amd64.tar.gz"
+      sha256 "2e2795e475d74a5b1d0a871a1a57bcd610a41cd353a0e3cd69e3a9dfb611c89d"
       define_method(:install) do
         bin.install "archway"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dcsg/archway/releases/download/v0.1.0/archway_0.1.0_linux_arm64.tar.gz"
-      sha256 "cbb160a4d78d30c6afe711b79cb2a6fb72294b9aaedef78e1d5a83ff237271b1"
+      url "https://github.com/dcsg/archway/releases/download/v0.2.0/archway_0.2.0_linux_arm64.tar.gz"
+      sha256 "d39b523a7a85f2832fdd3bba5c554f06243d6da1a58d284ba15f0c732079ab3f"
       define_method(:install) do
         bin.install "archway"
       end
     end
+  end
+
+  def post_install
+    system "#{bin}/archway", "setup"
   end
 
   test do
